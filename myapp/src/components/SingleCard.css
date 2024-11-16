@@ -1,0 +1,49 @@
+/* Basic styling for the card container */
+.card {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    perspective: 1000px; /* Enables 3D flip effect */
+}
+
+/* Style both images with consistent size, border, and rounded corners */
+.card img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border: 2px solid #fff;
+    border-radius: 6px;
+    object-fit: cover; /* Ensures images fill the container without distortion */
+}
+
+/* Style for the front of the card (the image) */
+.card .front {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: rotateY(90deg); /* Starts at a 90-degree angle */
+    backface-visibility: hidden; /* Hides the back side when flipped */
+    transition: transform 0.6s ease; /* Smooth flipping transition */
+}
+
+/* Front image when the card is flipped */
+.flipped .front {
+    transform: rotateY(0deg); /* Rotates to 0 degrees to show the front */
+}
+
+/* Style for the back of the card (the cover image) */
+.card .back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: rotateY(0deg); /* Starts at 0 degrees, showing initially */
+    backface-visibility: hidden; /* Hides the front when flipped */
+    transition: transform 0.6s ease; /* Smooth flipping transition */
+    background-color: #333; /* Optional background for the back cover */
+    cursor: pointer; /* Indicates clickable area */
+}
+
+/* Back image when the card is flipped */
+.flipped .back {
+    transform: rotateY(90deg); /* Rotates to 90 degrees to hide the back */
+}
